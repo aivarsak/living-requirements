@@ -9,6 +9,21 @@ Some were made in Stay Close (`aivarsak/stay-close-oss`) and moved
 here on 2026-09-22 with the method. Decisions about a product stay in
 that product.
 
+## 2026-09-23 — IDs are slugs, prefixed by their feature path
+
+From a project, owner's proposal. Why: an ID read anywhere, in a test
+name, a branch or a commit, says what it means and which feature it
+belongs to, and two people shaping different features never collide.
+Numbers say neither.
+
+## 2026-09-23 — How is input the first time
+
+From a project, owner's proposal. Why: an agent that takes the first
+word on how as instruction stops thinking where it is strongest, in
+implementation and in wording rules. Asking once for its own plan
+costs little; complying when the person holds keeps them in charge.
+The overrule is written so the next reader knows it was a choice.
+
 ## 2026-09-23 — Living files go anywhere everyone can reach
 
 Owner's decision, replacing "Living files sit apart from the code". The
