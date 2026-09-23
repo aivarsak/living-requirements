@@ -9,6 +9,31 @@ Some were made in Stay Close (`aivarsak/stay-close-oss`) and moved
 here on 2026-09-22 with the method. Decisions about a product stay in
 that product.
 
+## 2026-09-23 — Living files go anywhere everyone can reach
+
+Owner's decision, replacing "Living files sit apart from the code". The
+method no longer says where living files are kept. Why: we kept them
+apart because code changes places. Moving them is harmless as long as
+everyone working on the features can reach all of them and they refer
+to each other and to proof by ID. Removing one removes its feature. An
+accidental removal shows up as drift, because the proof left behind
+carries rule IDs that have no rule. A folder of their own, or a
+repository of their own for a multi-repository product, is a
+suggestion, not a rule. This repository, the method apart from every
+project, is one such choice.
+
+## 2026-09-23 — A change entry is removed when its change goes Live
+
+Owner's question, AI's proposal. This replaces "The feature file
+carries its change log", whose log pointed into `changes/`. The feature
+file still ends with a change log, but each line stands alone: the date
+and what changed in meaning. Why: while a change is underway, its entry
+holds what cannot yet go in the feature file. Once it is Live, the
+entry is only history, which living files are not. Keeping it meant a
+path that breaks when files move and a listing the log repeated.
+Reasoning worth keeping goes to the decision file, and git keeps the
+rest.
+
 ## 2026-09-23 — The method is five layers
 
 Owner's idea. Manifesto, method, default method, project method,
@@ -95,27 +120,8 @@ Owner's idea. Optional; a promise, never an estimate. Why: with status
 and dates in the living files, what is cooking and when it lands is a
 report AI gathers on request, and no tracker is kept beside the work.
 
-## 2026-09-22 — Living files sit apart from the code
-
-Owner's decision. Living files and change entries live in their own
-place; code, proof and prototypes live outside it. Why: one product's
-code is often in several repositories, the owner may not know how or by
-whom a thing is built, and where the requirements live must not move
-when the code moves. What ties a rule to its code is the id every
-proof carries and the place each rule names as its proof. This
-repository, the method apart from every project, is the same decision
-one level up.
-
 ## 2026-09-22 — The method's home keeps no log
 
 Owner's decision. Nothing is built here, only the method, so this file
 is the one record: each decision with its why, overrules and declined
 proposals included, one line for the declined.
-
-## 2026-09-22 — The feature file carries its change log
-
-Owner's idea. A section at the end of the feature file: date, one
-line, the entry's file in `changes/`, newest first, changes in meaning
-only. Why: the file reads alone. What we give up: `changes/` is
-already a dated listing, so the log is that listing said again, and
-the review checks the two agree.

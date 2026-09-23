@@ -6,7 +6,9 @@ Use it as-is, or replace parts of it in `project.method.md`. `method.md` wins wh
 
 ## Living files
 
-Keep living files in the repository, separate from code and proof.
+Keep living files where everyone working on the features, people and agents, can reach all of them. They find each other and their proof by ID, so they can move without breaking anything.
+
+In a product with one repository, a folder of their own is usually easiest. In a product whose code spans several repositories, a repository of their own may be.
 
 There are three kinds:
 
@@ -69,8 +71,8 @@ A compact, newest-first index of meaningful changes:
 ```md
 ## Change log
 
-- 2026-09-22 — Added automatic trip briefing. `changes/2026-09-20-trip-briefing.md`
-- 2026-09-14 — Removed manual refresh after order sync. `changes/2026-09-10-order-sync-refresh.md`
+- 2026-09-22 — Added automatic trip briefing.
+- 2026-09-14 — Removed manual refresh after order sync.
 - 2026-08-30 — Initial feature went live.
 ```
 
@@ -176,7 +178,7 @@ The living files must remain understandable without reading the code.
 
 ## Feature changes
 
-Once a feature is Live, meaningful changes to its promises get a feature change entry under `changes/`.
+Once a feature is Live, meaningful changes to its promises get a feature change entry.
 
 A change that touches no rule needs no entry: a fix that makes code meet an existing rule, a refactor, a change in wording.
 
@@ -190,7 +192,7 @@ A feature change records:
 
 The feature remains Live while the change is underway.
 
-When the change becomes Live, update the feature file and add it to the change log. Close the change entry and do not maintain it afterward.
+When the change becomes Live, update the feature file, add a line to its change log, and move any reasoning worth keeping to the decision file. Then remove the change entry.
 
 Several changes may be shaped independently. Conflicts are resolved when their resulting living-file changes meet.
 
