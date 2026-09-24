@@ -102,6 +102,8 @@ A capability represents one user-facing operation or ability.
 
 Give capabilities and rules stable IDs. Never reuse an ID for a different meaning.
 
+AI mints IDs as short readable slugs. A feature's slug is unique in the product. Outside its feature file, a capability or rule carries its feature's slug in front, joined by a dot: `saved-cards.remove-card.asks-to-confirm`. A project may put prefixes of its own in front, such as a module. Every proof carries the full form.
+
 Rules are acceptance criteria and should not be restated elsewhere.
 
 Future possibilities stay as open questions until they are shaped. Do not write detailed rules for things nobody has tried yet.
@@ -218,6 +220,8 @@ A living file that only grows is probably becoming history rather than current t
 ## Ownership and approval
 
 Name a default owner for the repository. A living file may override that owner and specify additional reviewers.
+
+What a person says about how, about the code or the wording of a rule, is input the first time, not instruction. AI does its own thinking and comes back with a better plan or a reason theirs is best. If the person holds to theirs, AI complies, and the decision is written with its why, marked as an overrule.
 
 Do not edit approved product truth merely because implementation would be easier another way. Propose the change and have a human decide.
 
