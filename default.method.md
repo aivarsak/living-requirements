@@ -102,7 +102,7 @@ A capability represents one user-facing operation or ability.
 
 Give capabilities and rules stable IDs. Never reuse an ID for a different meaning.
 
-Make IDs slugs: short readable names minted in the feature file. Outside it, the path of features above goes in front, joined by dots: `trip-brief.who-to-see.remind.overdue-first`. Every proof carries that form.
+AI mints IDs as short readable slugs. A feature's slug is unique in the product. Outside its feature file, a capability or rule carries its feature's slug in front, joined by a dot: `saved-cards.remove-card.asks-to-confirm`. A project may put prefixes of its own in front, such as a module. Every proof carries the full form.
 
 Rules are acceptance criteria and should not be restated elsewhere.
 

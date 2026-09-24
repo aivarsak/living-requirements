@@ -9,12 +9,16 @@ Some were made in Stay Close (`aivarsak/stay-close-oss`) and moved
 here on 2026-09-22 with the method. Decisions about a product stay in
 that product.
 
-## 2026-09-23 — IDs are slugs, prefixed by their feature path
+## 2026-09-24 — IDs are slugs, prefixed by their feature
 
-From a project, owner's proposal. Why: an ID read anywhere, in a test
-name, a branch or a commit, says what it means and which feature it
-belongs to, and two people shaping different features never collide.
-Numbers say neither.
+From a project, owner's proposal, simplified with AI. This brings back
+the slug IDs that went with `layout.md`. Why: an ID read anywhere, in a
+test name or a commit, says what it means. Two people shaping different
+features never collide, because feature slugs are unique in the
+product. Numbers do neither. By default the prefix is the feature
+alone. The feature map already says where a feature sits, and a path
+would rename rules whenever features are split or moved. A team that
+wants a module or a path in front adds it in its project method.
 
 ## 2026-09-23 — How is input the first time
 
