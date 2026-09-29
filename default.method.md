@@ -14,7 +14,7 @@ There are three kinds:
 
 - **Product file** — the product's vision, the problem, the people who have it, signals, exclusions and the feature map.
 - **Feature file** — one per feature, containing its why, rules and references to proof.
-- **Decision file** — records important choices about how and why they were made.
+- **Decision file** — what we agreed about how, and why, as it stands now.
 
 The product file is the root. Features may contain smaller features.
 
@@ -160,13 +160,17 @@ Measure the baseline before relying on later comparisons.
 
 ## Decisions
 
-Record important choices about **how** separately from why and rules.
+Feature files hold what and why. Decision files hold what we agreed about how: the choices that bind the implementation or its proof, and that someone would otherwise reopen. The rest of how is in the code and is free to change.
 
-A decision records the choice and its reasoning.
+An entry belongs if changing it in the code would need someone to agree first. AI keeps the file from turning into a technical spec: when someone asks to record detail the code already carries, it pushes back, and records an overrule if they hold.
+
+A decision file is current state, not a log. It has one entry per subject, with the date it was last settled. Each entry says what holds and why.
+
+When an agreement changes, rewrite the entries it touches so they say what holds now. Keep a past choice only where it explains why not to go back to it. Git keeps the rest.
+
+Before recording a decision, AI names the entries it contradicts or narrows, and proposes them rewritten.
 
 Decisions may exist at product or feature level.
-
-Replace a decision when a better one appears, while preserving enough reasoning for the next person or agent to understand why the choice was made.
 
 ## The gate
 
@@ -210,6 +214,7 @@ Look for at least:
 - implementation behaviour with no rule
 - stale living information
 - inconsistencies between the feature map and feature files
+- decisions that contradict each other, overlap, no longer match the code, or have become spec
 
 AI proposes fixes with its findings.
 
