@@ -6,6 +6,14 @@ method files say the rest. When a decision changes, its entry is
 rewritten, and git keeps what it said before. Overrules and declined
 proposals are marked.
 
+## Decision files are the contract on how — 2026-10-05
+
+Why: once AI leads the how, a person still needs one place where the
+questions they chose to settle are answered, and kept, the way feature
+files keep what the product promises. Where decision files sit is left
+open on purpose: we do not yet know a placement that fits every
+product, and a fixed one would leave empty files behind.
+
 ## Decisions are current state, by subject — 2026-09-29
 
 Why: dated entries pile up, and three records on one subject that say

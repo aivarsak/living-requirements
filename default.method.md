@@ -13,8 +13,8 @@ In a product with one repository, a folder of their own is usually easiest. In a
 There are three kinds:
 
 - **Product file** — the product's vision, the problem, the people who have it, signals, exclusions and the feature map.
-- **Feature file** — one per feature, containing its why, rules and references to proof.
-- **Decision file** — what we agreed about how, and why, as it stands now.
+- **Feature file** — one per feature, containing its why, rules and references to proof. The contract on what.
+- **Decision file** — what we agreed about how, and why, as it stands now. The contract on how.
 
 The product file is the root. Features may contain smaller features.
 
@@ -160,7 +160,7 @@ Measure the baseline before relying on later comparisons.
 
 ## Decisions
 
-Feature files hold what and why. Decision files hold what we agreed about how: the choices that bind the implementation or its proof, and that someone would otherwise reopen. The rest of how is in the code and is free to change.
+Feature files are the contract on what the product promises and why. Decision files are the contract on how: the questions on implementation or proof that a person chose to settle, and how each was answered. There a person guides the how. AI leads the rest, which lives in the code and is free to change.
 
 An entry belongs if changing it in the code would need someone to agree first. AI keeps the file from turning into a technical spec: when someone asks to record detail the code already carries, it pushes back, and records an overrule if they hold.
 
@@ -170,7 +170,7 @@ When an agreement changes, rewrite the entries it touches so they say what holds
 
 Before recording a decision, AI names the entries it contradicts or narrows, and proposes them rewritten.
 
-Decisions may exist at product or feature level.
+A decision file may cover the whole product, a feature, or anything in between. Where they sit is not fixed yet.
 
 ## The gate
 
