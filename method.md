@@ -33,13 +33,32 @@ Evidence, requests, conversations, proposals and other working material describe
 
 **Change documents describe transitions. Living files describe state.**
 
-## Discover before you preserve
+Choices about how that a person settled are kept with the living files too, at the narrowest scope they apply to: the product, a part of it, or a feature. Broader ones apply together with narrower ones. A narrower choice may refine a broader one, but never silently contradicts it.
+
+## Two loops, two gates
+
+A feature is learned while it is shaped and while it is built. After it is released, its signals feed the next change.
+
+**Shape and learn ↔ commit gate ↔ Build and prove ↔ release gate → Live → signals → the next change.**
+
+It is not a waterfall. Each loop learns. Each gate is a decision a person makes. What we learn may send work back across a gate.
+
+Each loop has a person accountable for it:
+
+- **Shape and learn**, up to the commit gate: the person accountable for product intent. They decide whether we commit, and any change of intent after it.
+- **Build and prove**, up to the release gate: the person accountable for delivery. They decide how the commitment is kept: its approach, its pace, and when it passes the release gate.
+
+One person may be both. Both are humans, even when AI does the work.
+
+## Shape and learn
 
 A feature starts uncertain.
 
 **Shape → Try → Learn → Repeat.**
 
-Describe the problem and who has it. Make the smallest thing someone can experience. Put it in front of a real person. Learn from what happens.
+Describe the problem and who has it. Try the smallest thing that can teach us: a prototype, a sketch, a conversation, a walk-through. Put it in front of a real person where one can be reached. Learn from what happens.
+
+A prototype is a tool for learning, not a requirement.
 
 Do not turn guesses into requirements too early.
 
@@ -47,13 +66,15 @@ What we learn and want the product to keep doing becomes a rule.
 
 If something is too large to understand or try, break it along behaviour a person can observe and shape the smaller parts.
 
+Shaping does not find everything. It finds enough to commit.
+
 ## Turn promises into rules
 
 A rule describes observable product behaviour or a quality we want to preserve, not its implementation.
 
 Humans own the rules. AI helps discover, express, challenge and maintain them.
 
-Every rule has proof: tests, assertions, evals or other executable checks that show whether it holds.
+Every rule has proof: tests, assertions, evals or other executable checks that show whether it holds. When we commit to a rule, we know how it will be proved. Its proof passes before it is Live.
 
 AI leads the proof.
 
@@ -63,13 +84,39 @@ If behaviour disappears, its rule and proof disappear.
 
 Behaviour not promised by a rule is free to change.
 
-## Pass the gate
+## Pass the commit gate
 
-A prototype becomes product when:
+The commit gate asks: **do we understand what we intend to build well enough to commit to building it?**
+
+A feature passes when:
+
+- its problem and intended outcome are understood well enough to commit
+- its capabilities and known rules describe what we now believe we are building
+- its success is defined, where it can be
+- we know how each known rule will be proved
+
+Proof does not need to exist yet. No prototype or UI is required. The known rules do not need to be all the rules there will be.
+
+Committing is a promise to build, not a claim that learning is done.
+
+## Build and prove
+
+**Build → Prove → Learn → Repeat.**
+
+Code and its proof grow together. Building shows what shaping could not: new rules, rules that change, edge cases, sometimes a missing capability. They go into the living files as they are found and are approved like any other rule. Finding them is the loop working, not shaping failing.
+
+A change to the why, or to what a person can do, is a change of intent. The human who owns the intent decides it, in the open, not inside the code. It may send the feature back to shaping.
+
+## Pass the release gate
+
+The release gate asks: **can we prove that what we are about to release keeps the promises we now intend to keep?**
+
+A feature becomes Live when:
 
 - every behaviour and quality we intend to preserve is described by a rule
 - every rule has proof
 - the proof passes
+- the code and the living files agree
 
 A fresh agent should be able to read the living files, inspect the implementation, and find behaviour that is promised but missing, or present but not described.
 
@@ -79,7 +126,7 @@ The implementation may then evolve or be replaced as long as the promises contin
 
 Release does not end the loop.
 
-People use the product. We observe what happens. We learn. The why or rules change. Proof and code follow.
+People use the product. We observe what happens. We learn. The why or rules change, and the change goes round the loops again.
 
 Proof tells us:
 

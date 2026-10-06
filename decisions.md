@@ -6,21 +6,70 @@ method files say the rest. When a decision changes, its entry is
 rewritten, and git keeps what it said before. Overrules and declined
 proposals are marked.
 
-## Decision files are the contract on how — 2026-10-05
+## Two learning loops and two gates — 2026-10-06
+
+Why: shaping cannot find everything building will. Edge cases, rules
+that interact, limits of the platform, sometimes a missing capability:
+these only show up in code and proof. With one gate, every rule found
+while building looked like a shaping failure, or was waved through
+unnoticed. So building is a loop of its own, and what it finds goes
+into the living files as normal work. The old gate stays as strong as
+it was and becomes the release gate. A lighter commit gate, which asks
+for no proof, prototype or UI, marks the conscious choice to build.
+Each loop names the person accountable for it, intent for shaping and
+delivery for building, by accountability rather than by title so any
+team can fill them. It is in the method because a loop with nobody
+accountable drifts, with or without timeboxes. A change of intent is
+still decided by the person accountable for intent, so the loop cannot
+quietly turn into a new feature. The gates are named, not numbered, so
+each name says what is decided. Keeping a prototype apart from real
+code until the gate was dropped: the release gate is what protects the
+product, and where the prototype goes is a question of how. The
+manifesto is unchanged: belief 1 already covers learning by trying,
+and belief 7 is the split the release gate keeps.
+
+## Timeboxes are decisions, not estimates — 2026-10-06
+
+Why: a date treated as an estimate drifts, and nobody decides anything
+when it passes. A date treated as the moment to decide forces the
+choice: while shaping, commit, continue, change what is shaped or drop
+it; while building, scope or approach before the date. Each of the two
+people the method holds accountable for a loop holds that loop's
+timebox. A timebox is meant to be met, and moving one is rare. A date
+that moves easily stops forcing a choice, and becomes an estimate
+again. We take accountability seriously: people in the team, across
+the organisation and sometimes customers rely on these dates. They
+trust them because they are kept, and because the rare move is made
+openly and says why. A move without its why is drift with paperwork.
+Timeboxes replace the committed date. As with it, no tracker is kept,
+and what lands when is a report AI gathers from the headers. Timeboxes
+sit in the default, not the method, because the method would work
+without them.
+
+## Decision files are the contract on how — 2026-10-06
 
 Why: once AI leads the how, a person still needs one place where the
-questions they chose to settle are answered, and kept, the way feature
-files keep what the product promises. Where decision files sit is left
-open on purpose: we do not yet know a placement that fits every
-product, and a fixed one would leave empty files behind.
+questions they chose to settle are answered and kept, the way feature
+files keep what the product promises. They live with the requirements
+and not in the code, so the how a person settled is found where the
+what is read, and survives the code being replaced. Each sits at the
+narrowest scope it applies to, so a feature's reader finds its how
+beside it without reading the whole product's. The scopes are read
+together, and a narrower one may refine a broader one but never
+silently contradict it, because two files saying different things
+leave nobody sure what holds. A file is created only when there is a
+decision worth keeping, so no empty files are left behind. No layout
+is prescribed, because products are cut into modules differently.
 
-## Decisions are current state, by subject — 2026-09-29
+## Decisions are current state, by subject — 2026-10-06
 
 Why: dated entries pile up, and three records on one subject that say
-different things leave nobody sure what holds. Kept to agreements,
-because the code is the how and is free to change; a decision file
-that specs it drifts from it. It sits in the default, not the method,
-because the method would work without it.
+different things leave nobody sure what holds. They are kept to
+agreements, because the code is the how and is free to change; a
+decision file that specs it drifts from it. The method holds only that
+settled choices about how are kept with the living files, at their
+scope. The files and their shape sit in the default, because the
+method would work with another shape.
 
 ## Five layers — 2026-09-23
 
@@ -66,8 +115,6 @@ suggestion, not a rule.
 Why: the root has no rules and no proof of its own. The feature-file
 shape forced on it produced an empty "Depends on", an Id of "the root"
 and a Proof with nothing to prove. Its job is vision and alignment.
-A committed date in the header is a promise, never an estimate, so
-what lands when is a report AI gathers and no tracker is kept.
 
 ## Slug IDs, prefixed by their feature — 2026-09-24
 
