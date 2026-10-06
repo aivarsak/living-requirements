@@ -2,6 +2,8 @@
 
 A way for people and AI to build aligned products together.
 
+[![Living Requirements on one page](assets/one-pager.png)](assets/one-pager.html)
+
 | File | Says |
 | --- | --- |
 | `manifesto.md` | What we believe |
@@ -11,7 +13,8 @@ A way for people and AI to build aligned products together.
 | `my.method.md` | How I personally work |
 
 The first three live here. The last two are yours: one in your
-project, one with you.
+project, one with you. The picture is the method on one page; where
+it and `method.md` differ, `method.md` wins.
 
 ## Start
 

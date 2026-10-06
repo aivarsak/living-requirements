@@ -11,5 +11,7 @@ This repository is the method itself. Read `manifesto.md`,
   with a better plan or a reason mine is best. The decision goes in
   `decisions.md` with its why, overrules included.
 - A pull request from a project is a proposal like any other.
+- A change to the method that makes `assets/one-pager.html` wrong
+  updates it and `assets/one-pager.png` in the same change.
 - Keep it one method. A project's exception lives in its
   `project.method.md`, not here.

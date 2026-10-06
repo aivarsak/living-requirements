@@ -6,6 +6,18 @@ method files say the rest. When a decision changes, its entry is
 rewritten, and git keeps what it said before. Overrules and declined
 proposals are marked.
 
+## The method on one page — 2026-10-06
+
+Why: a stranger grasps the two loops, the gates and the living files
+faster from one picture than from a page of text, so it sits at the
+top of the README. It is a summary, not a layer: it chooses and adds
+nothing, and `method.md` wins where they differ. Because it repeats
+the method, it would drift; a change to the method that makes it
+wrong updates it in the same change. The PNG is what GitHub and any
+tool can show; the HTML is its source. It shows no customer role,
+because Product owns intent and real use only challenges it, as
+signals. It does not say who decides at each gate, to keep it light.
+
 ## Two learning loops and two gates — 2026-10-06
 
 Why: shaping cannot find everything building will. Edge cases, rules

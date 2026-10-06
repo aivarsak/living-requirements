@@ -31,7 +31,7 @@ Evidence, requests, conversations, proposals and other working material describe
 
 **Change documents describe transitions. Living files describe state.**
 
-Choices about how that a person settled are kept with the living files too, at the narrowest scope they apply to: the product, a part of it, or a feature. Broader ones apply together with narrower ones. A narrower choice may refine a broader one, but never silently contradicts it.
+Choices about how a person settled are kept with the living files too, at the narrowest scope they apply to: the product, a part of it, or a feature. Broader ones apply together with narrower ones. A narrower choice may refine a broader one, but never silently contradicts it.
 
 ## Two loops, two gates
 
