@@ -8,24 +8,22 @@ The manifesto says what we believe. This method says what we do.
 
 Every product has four things that must agree:
 
-| | Says | Led by |
-| --- | --- | --- |
-| **Why** | Why this should exist and for whom | Human |
-| **Rules** | What the product promises | Human |
-| **Proof** | How we know those promises hold | AI |
-| **Code** | How those promises are implemented | AI |
+| | Thing | Says | Accountable |
+| --- | --- | --- | --- |
+| **Why** | Problem and outcome | Who has the problem, why now, and the outcome we want | Product |
+| **What** | Capabilities and rules | What a person or another system can do, and what the product promises | Product |
+| **What** | Proof | What we prove, for each promise, to know it holds | QA |
+| **How** | Code and tests | How those promises are implemented, and the tests that show they hold | Engineering |
 
-Humans own what should be true. AI helps discover, express and challenge it.
+AI works across all four. Humans remain accountable.
 
-AI leads how we prove and implement it.
-
-The why and rules describe the product independently of its implementation. Code may be replaced without changing them.
+The why and the what describe the product independently of its implementation. Code may be replaced without changing them.
 
 When these disagree, we do not automatically trust either side. We find what is wrong and align them again.
 
 ## Keep product truth alive
 
-The current why and rules are kept as **living files**.
+The current why and what are kept as **living files**.
 
 They live with the product and change as our understanding changes. They describe what we believe now, not the history of how we got there.
 
@@ -41,14 +39,21 @@ A feature is learned while it is shaped and while it is built. After it is relea
 
 **Shape and learn ↔ commit gate ↔ Build and prove ↔ release gate → Live → signals → the next change.**
 
-It is not a waterfall. Each loop learns. Each gate is a decision a person makes. What we learn may send work back across a gate.
+It is not a waterfall. Each loop learns. Each gate is a decision people make. What we learn may send work back across a gate.
 
-Two people are accountable. One person may be both. Both are humans, even when AI does the work.
+Three accountabilities are held, each by a human, even when AI does the work. Each has a title. The title means the accountability, not a job or a department. One person may hold more than one.
 
-- **The person accountable for product intent** decides at both gates: whether we commit, and whether what was built is released. They decide any change of intent in between.
-- **The person accountable for delivery** decides how the commitment is kept: its approach and its pace.
+- **Product** is accountable for intent. Product decides any change of intent after the commit gate.
+- **QA** is accountable for proof: how each rule is shown to hold. QA makes sure the tests do what the proof describes, and looks for what both miss. Where the team allows it, QA is not the person who built the feature.
+- **Engineering** is accountable for delivery. Engineering decides how the commitment is kept: its approach and its pace. Engineering is accountable for the tests existing and passing.
 
-Whether a feature passes the release gate is shown by its proof, not decided by anyone. What did not pass is not released.
+Accountable means making sure it is done and saying when it is, not doing it alone. Who writes the why, the rules, the proof, the code or the tests is the team's choice. AI helps at every step: shaping and prototyping, writing feature files, capturing decisions, building, verifying, and reading signals.
+
+A gate passes only when Product, QA and Engineering are each satisfied that their part holds, and have said so. A person who holds more than one is satisfied for each. Any of them can hold a gate; none can force it: a feature whose tests fail is not released, whoever is satisfied.
+
+How they say so, by a pull request approval, a word in conversation or a step in an agent's workflow, is the project's choice.
+
+A gate is passed by a feature, or by a change to a Live feature's promises. A fix that makes the code keep an existing rule passes no gate; its tests must pass.
 
 ## Shape and learn
 
@@ -74,9 +79,9 @@ A rule describes observable product behaviour or a quality we want to preserve, 
 
 Humans own the rules. AI helps discover, express, challenge and maintain them.
 
-Every rule is proved by tests, assertions, evals or other executable checks that show whether it holds. At the commit gate, we know how we will prove each known rule. At the release gate, its executable proof exists and passes.
+Every rule has a proof: how we show that it holds, in one or more cases, observed in one or more places. The proof is implemented as tests. Here a test is any executable check that shows a rule holds: an end-to-end or unit test, an assertion, or an eval with a passing threshold. At the commit gate, we know the proof of each known rule. At the release gate, its tests exist and pass.
 
-AI leads the proof.
+A rule's tests observe its behaviour from outside, wherever the rule says it is observed, not through the code that implements it. They still hold when the implementation is replaced.
 
 If behaviour changes, its rule and proof change.
 
@@ -94,8 +99,9 @@ A feature passes when:
 - its capabilities and known rules describe what we now believe we are building
 - its success is defined, where it can be
 - for every known rule, we know how we will prove it
+- Product, QA and Engineering are each satisfied
 
-Executable proof does not need to exist yet. No prototype or UI is required. The known rules do not need to be all the rules there will be.
+Tests do not need to exist yet. No prototype or UI is required. The known rules do not need to be all the rules there will be.
 
 Committing is a promise to build, not a claim that learning is done.
 
@@ -103,11 +109,13 @@ Committing is a promise to build, not a claim that learning is done.
 
 **Build → Prove → Learn → Repeat.**
 
-Code and its proof grow together. Here known rules gain their executable proof.
+Code and its tests grow together. Here known rules gain their tests.
+
+Tests are built with the implementation. Whoever writes the implementation also writes the tests that prove it against the agreed proof. Others, including QA, may add or improve tests.
 
 Building may reveal new rules, change existing ones, show edge cases, or reveal capabilities shaping missed. Each new rule is captured in the living files, given a way to be proved, implemented and proved, and approved like any other rule. Finding them is the loop working, not shaping failing.
 
-A capability needed to keep what we committed to is not a change of intent. A change of intent is learning that materially changes the problem, the intended outcome, or the scope of the commitment. The person accountable for product intent decides, in the open and not inside the code, whether it belongs in the current change or returns to shaping.
+A capability needed to keep what we committed to is not a change of intent. A change of intent is learning that materially changes the problem, the intended outcome, or the scope of the commitment. Product decides, in the open and not inside the code, whether it belongs in the current change or returns to shaping.
 
 ## Pass the release gate
 
@@ -116,12 +124,13 @@ The release gate asks: **can we prove that what we are about to release keeps th
 A feature becomes Live when:
 
 - every behaviour and quality we intend to preserve is described by a rule
-- for every rule, the executable proof exists and passes
+- for every rule, its tests exist and pass
 - the code and the living files agree
+- Product, QA and Engineering are each satisfied
 
 A fresh agent should be able to read the living files, inspect the implementation, and find behaviour that is promised but missing, or present but not described.
 
-The implementation may then evolve or be replaced as long as the promises continue to pass their proof.
+The implementation may then evolve or be replaced as long as the promises continue to pass their tests.
 
 ## Keep learning after release
 
@@ -137,15 +146,23 @@ Signals tell us:
 
 **Was our intention right?**
 
-Proof protects the product's promises. Signals challenge the assumptions behind them.
+Proof and its tests protect the product's promises. Signals challenge the assumptions behind them.
+
+A defect found in use is triaged by where the gap was:
+
+- **In the capabilities or rules** goes to Product.
+- **In the proof** goes to QA.
+- **In the implementation**, meaning the code or its tests, goes to Engineering.
+
+Each is closed so that a rule, its proof and its tests cover it, and it cannot return unseen. Behaviour that keeps every promise but disappoints a person is not a defect. It is a signal.
 
 ## Let AI maintain alignment
 
-AI helps shape the rules, creates their proof, implements them, and looks for drift across the living files, proof and code.
+AI helps shape the rules, write their proof, implement and test them, and looks for drift across the living files, code and tests.
 
 It proposes changes and explains conflicts and consequences.
 
-Humans own the why and rules and approve changes to product truth.
+Humans own the why and the what and approve changes to product truth.
 
 AI can increasingly own the work. Humans remain accountable for the product.
 
