@@ -2,7 +2,7 @@
 
 A manifesto for building products with AI.
 
-**Code is cheap now. Knowing what to build, and knowing it still does what we intended, is not.**
+**Code is cheap now. Knowing what the product should do, and knowing it still does, is not.**
 
 We believe:
 

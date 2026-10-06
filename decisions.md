@@ -6,6 +6,15 @@ method files say the rest. When a decision changes, its entry is
 rewritten, and git keeps what it said before. Overrules and declined
 proposals are marked.
 
+## The hook names the product — 2026-10-06
+
+Why: "what the product should do" is the promise itself, which is
+what the rules are about, and one subject covers both loops: shaping
+finds what it should do, proof shows it still does. "Knowing what to
+build, and knowing it still does what we intended", used from
+2026-09-23 to 2026-10-06, spoke about the team instead of the product
+and needed two objects to say it.
+
 ## The method on one page — 2026-10-06
 
 Why: a stranger grasps the two loops, the gates and the living files
