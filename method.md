@@ -74,7 +74,7 @@ A rule describes observable product behaviour or a quality we want to preserve, 
 
 Humans own the rules. AI helps discover, express, challenge and maintain them.
 
-Every rule is proved by executable checks: tests, assertions, evals or others that show whether it holds. At the commit gate, we know how we will prove each known rule. At the release gate, its executable proof exists and passes.
+Every rule is proved by tests, assertions, evals or other executable checks that show whether it holds. At the commit gate, we know how we will prove each known rule. At the release gate, its executable proof exists and passes.
 
 AI leads the proof.
 

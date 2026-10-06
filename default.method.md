@@ -195,7 +195,7 @@ A timebox is a commitment to reach a boundary by a date, reliable enough that ot
 - **Shaping timebox** — held by the person accountable for product intent, the feature's owner, and set when shaping starts. By its date, a conscious commit-gate decision is made: commit, reshape, keep shaping deliberately, or drop it.
 - **Release timebox** — held by the person accountable for delivery, and set at the commit gate at the latest. By its date, the agreed scope is released. A change of scope is decided with the owner of the intent.
 
-When what we learn threatens the release timebox, first change the approach, then reduce the scope while keeping the intended outcome. Only then move the date.
+When what we learn threatens the release timebox, reconsider the approach and scope before moving the date. Preserve the intended outcome when changing scope.
 
 A timebox may change, but never silently. Moving it is a conscious decision, made before the commitment is missed, and the header records the reason. People inside the team and beyond it, sometimes customers, rely on these dates. They trust them because the dates are kept, or renegotiated openly and in time.
 

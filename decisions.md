@@ -43,7 +43,7 @@ around it. For shaping, that means a conscious commit-gate decision by
 its date. For building, it means the agreed scope is released by its
 date. Each of the two people the method holds accountable for a loop
 holds that loop's timebox. When building threatens it, the approach
-and then the scope change before the date does, because a date that
+and the scope are reconsidered before the date, because a date that
 moves first stops forcing those questions and becomes an estimate
 again. No frequency of moves is prescribed: that would pretend
 uncertainty goes away, and it is not what makes a date reliable. What
