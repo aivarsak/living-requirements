@@ -74,7 +74,7 @@ A rule describes observable product behaviour or a quality we want to preserve, 
 
 Humans own the rules. AI helps discover, express, challenge and maintain them.
 
-Every rule has proof: tests, assertions, evals or other executable checks that show whether it holds. When we commit to a rule, we know how it will be proved. Its proof passes before it is Live.
+Every rule is proved by executable checks: tests, assertions, evals or others that show whether it holds. At the commit gate, we know how we will prove each known rule. At the release gate, its executable proof exists and passes.
 
 AI leads the proof.
 
@@ -93,9 +93,9 @@ A feature passes when:
 - its problem and intended outcome are understood well enough to commit
 - its capabilities and known rules describe what we now believe we are building
 - its success is defined, where it can be
-- we know how each known rule will be proved
+- for every known rule, we know how we will prove it
 
-Proof does not need to exist yet. No prototype or UI is required. The known rules do not need to be all the rules there will be.
+Executable proof does not need to exist yet. No prototype or UI is required. The known rules do not need to be all the rules there will be.
 
 Committing is a promise to build, not a claim that learning is done.
 
@@ -103,9 +103,11 @@ Committing is a promise to build, not a claim that learning is done.
 
 **Build → Prove → Learn → Repeat.**
 
-Code and its proof grow together. Building shows what shaping could not: new rules, rules that change, edge cases, sometimes a missing capability. They go into the living files as they are found and are approved like any other rule. Finding them is the loop working, not shaping failing.
+Code and its proof grow together. Here known rules gain their executable proof.
 
-A change to the why, or to what a person can do, is a change of intent. The human who owns the intent decides it, in the open, not inside the code. It may send the feature back to shaping.
+Building may reveal new rules, change existing ones, show edge cases, or reveal capabilities shaping missed. Each new rule is captured in the living files, given a way to be proved, implemented and proved, and approved like any other rule. Finding them is the loop working, not shaping failing.
+
+A capability needed to keep what we committed to is not a change of intent. A change of intent is learning that materially changes the problem, the intended outcome, or the scope of the commitment. The person accountable for product intent decides, in the open and not inside the code, whether it belongs in the current change or returns to shaping.
 
 ## Pass the release gate
 
@@ -114,8 +116,7 @@ The release gate asks: **can we prove that what we are about to release keeps th
 A feature becomes Live when:
 
 - every behaviour and quality we intend to preserve is described by a rule
-- every rule has proof
-- the proof passes
+- for every rule we intend to preserve, the executable proof exists and passes
 - the code and the living files agree
 
 A fresh agent should be able to read the living files, inspect the implementation, and find behaviour that is promised but missing, or present but not described.

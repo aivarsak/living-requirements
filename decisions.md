@@ -14,37 +14,47 @@ these only show up in code and proof. With one gate, every rule found
 while building looked like a shaping failure, or was waved through
 unnoticed. So building is a loop of its own, and what it finds goes
 into the living files as normal work. The old gate stays as strong as
-it was and becomes the release gate. A lighter commit gate, which asks
-for no proof, prototype or UI, marks the conscious choice to build.
-Each loop names the person accountable for it, intent for shaping and
-delivery for building, by accountability rather than by title so any
-team can fill them. It is in the method because a loop with nobody
-accountable drifts, with or without timeboxes. A change of intent is
-still decided by the person accountable for intent, so the loop cannot
-quietly turn into a new feature. The gates are named, not numbered, so
-each name says what is decided. Keeping a prototype apart from real
-code until the gate was dropped: the release gate is what protects the
-product, and where the prototype goes is a question of how. The
-manifesto is unchanged: belief 1 already covers learning by trying,
-and belief 7 is the split the release gate keeps.
+it was and becomes the release gate: for every rule, the executable
+proof exists and passes. A lighter commit gate asks to know how each
+known rule will be proved, not for the proof itself, nor for a
+prototype or UI, and marks the conscious choice to build. Each loop
+names the person accountable for it, intent for shaping and delivery
+for building, by accountability rather than by title so any team can
+fill them. It is in the method because a loop with nobody accountable
+drifts, with or without timeboxes. A change of intent is decided by
+the person accountable for intent, so the loop cannot quietly turn
+into a new feature. It is defined narrowly, as a material change to
+the problem, the outcome or the scope of the commitment, not as any
+new capability. Otherwise every capability building finds would go
+back to shaping, and the rigidity of one gate would return. When it is
+unclear, it goes to that person, because "not material" judged alone
+is how intent drifts. The gates are named, not numbered, so each name
+says what is decided. Keeping a prototype apart from real code until
+the gate was dropped: the release gate is what protects the product,
+and where the prototype goes is a question of how. The manifesto is
+unchanged: belief 1 already covers learning by trying, and belief 7 is
+the split the release gate keeps.
 
-## Timeboxes are decisions, not estimates — 2026-10-06
+## Timeboxes are commitments, not estimates — 2026-10-06
 
 Why: a date treated as an estimate drifts, and nobody decides anything
-when it passes. A date treated as the moment to decide forces the
-choice: while shaping, commit, continue, change what is shaped or drop
-it; while building, scope or approach before the date. Each of the two
-people the method holds accountable for a loop holds that loop's
-timebox. A timebox is meant to be met, and moving one is rare. A date
-that moves easily stops forcing a choice, and becomes an estimate
-again. We take accountability seriously: people in the team, across
-the organisation and sometimes customers rely on these dates. They
-trust them because they are kept, and because the rare move is made
-openly and says why. A move without its why is drift with paperwork.
-Timeboxes replace the committed date. As with it, no tracker is kept,
-and what lands when is a report AI gathers from the headers. Timeboxes
-sit in the default, not the method, because the method would work
-without them.
+when it passes. A timebox is worth something only if others can plan
+around it. For shaping, that means a conscious commit-gate decision by
+its date. For building, it means the agreed scope is released by its
+date. Each of the two people the method holds accountable for a loop
+holds that loop's timebox. When building threatens it, the approach
+and then the scope change before the date does, because a date that
+moves first stops forcing those questions and becomes an estimate
+again. No frequency of moves is prescribed: that would pretend
+uncertainty goes away, and it is not what makes a date reliable. What
+does is that it never moves silently. A move is a conscious decision,
+made before the commitment is missed, with its reason recorded. We
+take accountability seriously: people in the team, across the
+organisation and sometimes customers rely on these dates. Timeboxes
+replace the committed date. As with it, no tracker is kept, and what
+lands when is a report AI gathers from the headers. Timeboxes sit in
+the default, not the method, because the method would work without
+them.
 
 ## Decision files are the contract on how — 2026-10-06
 

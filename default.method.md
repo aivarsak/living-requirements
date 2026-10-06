@@ -129,9 +129,9 @@ A prototype is a tool for learning, not product truth. Whether it is thrown away
 
 ## Proof
 
-Every rule names its proof.
+Every rule names how it is proved.
 
-From the commit gate, a rule may name proof that does not exist yet. That proof must exist and pass at the release gate.
+At the commit gate, that may be only how we will prove it. At the release gate, the executable proof exists and passes.
 
 Every executable proof references its rule ID.
 
@@ -184,18 +184,20 @@ Create a decision file only when there is a decision worth keeping.
 
 **Commit gate.** The feature's owner, as the person accountable for its intent, decides it with the person accountable for delivery, who sets the release timebox then if it is not set yet. The feature file has its why, capabilities and known rules, and its Proof says how each will be proved. Status becomes Building.
 
-**While building.** Rules found go into the feature file with their proof. They are reviewed with the rest of the change, not one by one. A change of intent goes to the owner when it is found, not at the gate.
+**While building.** Rules found go into the feature file with how they will be proved, and gain their proof in the same loop. They are reviewed with the rest of the change, not one by one. A change of intent goes to the owner when it is found, not at the gate. So does anything that might be one: the builder does not decide on their own that it is not.
 
 **Release gate.** The gate in `method.md`. For behaviour the fresh agent finds with no rule, either approve a rule for it or remove it. The living files must remain understandable without reading the code. Status becomes Live.
 
 ## Timeboxes
 
-A timebox is a commitment to make a conscious decision by a date, not a prediction of how long the work will take.
+A timebox is a commitment to reach a boundary by a date, reliable enough that other people can plan around it. It is not a prediction of how long the work will take.
 
-- **Shaping timebox** — held by the person accountable for product intent, the feature's owner, and set when shaping starts. When it ends, they decide: commit, keep shaping, change what is shaped, or drop it.
-- **Release timebox** — held by the person accountable for delivery, and set at the commit gate at the latest. It runs through building to release. When it ends, or when what we learn threatens it, they decide: change the scope or the approach, or, rarely, the date. A change of scope is decided with the owner of the intent.
+- **Shaping timebox** — held by the person accountable for product intent, the feature's owner, and set when shaping starts. By its date, a conscious commit-gate decision is made: commit, reshape, keep shaping deliberately, or drop it.
+- **Release timebox** — held by the person accountable for delivery, and set at the commit gate at the latest. By its date, the agreed scope is released. A change of scope is decided with the owner of the intent.
 
-A timebox is meant to be met. Scope and approach bend to it before it moves. Moving one is rare. A move is a decision of its own, made openly before the date passes, and the header says why. Silent drift is not allowed. People inside the team and beyond it, sometimes customers, rely on these dates. They trust them because the dates are kept, and because the rare move is explained.
+When what we learn threatens the release timebox, first change the approach, then reduce the scope while keeping the intended outcome. Only then move the date.
+
+A timebox may change, but never silently. Moving it is a conscious decision, made before the commitment is missed, and the header records the reason. People inside the team and beyond it, sometimes customers, rely on these dates. They trust them because the dates are kept, or renegotiated openly and in time.
 
 What lands when is a report AI gathers from the headers; no tracker is kept.
 
