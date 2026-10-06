@@ -43,12 +43,12 @@ A feature is learned while it is shaped and while it is built. After it is relea
 
 It is not a waterfall. Each loop learns. Each gate is a decision a person makes. What we learn may send work back across a gate.
 
-Each loop has a person accountable for it:
+Two people are accountable. One person may be both. Both are humans, even when AI does the work.
 
-- **Shape and learn**, up to the commit gate: the person accountable for product intent. They decide whether we commit, and any change of intent after it.
-- **Build and prove**, up to the release gate: the person accountable for delivery. They decide how the commitment is kept: its approach, its pace, and when it passes the release gate.
+- **The person accountable for product intent** decides at both gates: whether we commit, and whether what was built is released. They decide any change of intent in between.
+- **The person accountable for delivery** decides how the commitment is kept: its approach and its pace.
 
-One person may be both. Both are humans, even when AI does the work.
+Whether a feature passes the release gate is shown by its proof, not decided by anyone. What did not pass is not released.
 
 ## Shape and learn
 
@@ -56,7 +56,7 @@ A feature starts uncertain.
 
 **Shape → Try → Learn → Repeat.**
 
-Describe the problem and who has it. Try the smallest thing that can teach us: a prototype, a sketch, a conversation, a walk-through. Put it in front of a real person where one can be reached. Learn from what happens.
+Describe the problem and who has it. Make the smallest thing a real person can experience: a prototype, a sketch, a walk-through. Put it in front of a real person. Learn from what happens.
 
 A prototype is a tool for learning, not a requirement.
 
@@ -116,7 +116,7 @@ The release gate asks: **can we prove that what we are about to release keeps th
 A feature becomes Live when:
 
 - every behaviour and quality we intend to preserve is described by a rule
-- for every rule we intend to preserve, the executable proof exists and passes
+- for every rule, the executable proof exists and passes
 - the code and the living files agree
 
 A fresh agent should be able to read the living files, inspect the implementation, and find behaviour that is promised but missing, or present but not described.

@@ -17,13 +17,18 @@ into the living files as normal work. The old gate stays as strong as
 it was and becomes the release gate: for every rule, the executable
 proof exists and passes. A lighter commit gate asks to know how each
 known rule will be proved, not for the proof itself, nor for a
-prototype or UI, and marks the conscious choice to build. Each loop
-names the person accountable for it, intent for shaping and delivery
-for building, by accountability rather than by title so any team can
-fill them. It is in the method because a loop with nobody accountable
-drifts, with or without timeboxes. A change of intent is decided by
-the person accountable for intent, so the loop cannot quietly turn
-into a new feature. It is defined narrowly, as a material change to
+prototype or UI, and marks the conscious choice to build. Two people
+are accountable, named by accountability rather than by title so any
+team can fill them. It is in the method because work with nobody
+accountable drifts, with or without timeboxes. The person accountable
+for intent decides at both gates, whether we commit and whether we
+release, because both are decisions about what the product promises.
+The person accountable for delivery decides the approach and the
+pace. Whether the release gate passes is shown by the proof and
+decided by nobody, so deciding to release can never wave failing
+proof through. A change of intent is decided by the person
+accountable for intent, so the loop cannot quietly turn into a new
+feature. It is defined narrowly, as a material change to
 the problem, the outcome or the scope of the commitment, not as any
 new capability. Otherwise every capability building finds would go
 back to shaping, and the rigidity of one gate would return. When it is
@@ -31,9 +36,12 @@ unclear, it goes to that person, because "not material" judged alone
 is how intent drifts. The gates are named, not numbered, so each name
 says what is decided. Keeping a prototype apart from real code until
 the gate was dropped: the release gate is what protects the product,
-and where the prototype goes is a question of how. The manifesto is
-unchanged: belief 1 already covers learning by trying, and belief 7 is
-the split the release gate keeps.
+and where the prototype goes is a question of how. Shaping still makes
+something a real person can experience, as manifesto belief 2 asks;
+softening it to whatever can teach us, with a person only where one
+can be reached, was declined. The manifesto is unchanged: belief 1
+already covers learning by trying, and belief 7 is the split the
+release gate keeps.
 
 ## Timeboxes are commitments, not estimates — 2026-10-06
 
@@ -41,17 +49,23 @@ Why: a date treated as an estimate drifts, and nobody decides anything
 when it passes. A timebox is worth something only if others can plan
 around it. For shaping, that means a conscious commit-gate decision by
 its date. For building, it means the agreed scope is released by its
-date. Each of the two people the method holds accountable for a loop
-holds that loop's timebox. When building threatens it, the approach
-and the scope are reconsidered before the date, because a date that
-moves first stops forcing those questions and becomes an estimate
-again. No frequency of moves is prescribed: that would pretend
-uncertainty goes away, and it is not what makes a date reliable. What
-does is that it never moves silently. A move is a conscious decision,
-made before the commitment is missed, with its reason recorded. We
-take accountability seriously: people in the team, across the
-organisation and sometimes customers rely on these dates. Timeboxes
-replace the committed date. As with it, no tracker is kept, and what
+date. They are called the commit date and the release date, so each
+name says which gate it is for. The owner of the intent holds the
+commit date and decides any move of either date; the person
+accountable for delivery is accountable for meeting the release date.
+When building threatens it, the approach and the scope are
+reconsidered before the date, because a date that moves first stops
+forcing those questions and becomes an estimate again. Moving a date
+is the exception, and a date that moves often is no longer a
+commitment. No count of moves is prescribed, because that would
+pretend uncertainty goes away. A move is a conscious decision, made
+before the commitment is missed, with its reason recorded. Sending a
+feature back to Shaping withdraws its release date the same way, so it
+is no way around a move. We take accountability seriously: people in
+the team, across the organisation and sometimes customers rely on
+these dates. Both dates are required, and a team of one that needs
+neither writes its exception in `project.method.md`. They replace the
+committed date. As with it, no tracker is kept, and what
 lands when is a report AI gathers from the headers. Timeboxes sit in
 the default, not the method, because the method would work without
 them.
@@ -60,7 +74,10 @@ them.
 
 Why: once AI leads the how, a person still needs one place where the
 questions they chose to settle are answered and kept, the way feature
-files keep what the product promises. They live with the requirements
+files keep what the product promises. The method holds only that
+settled choices about how are kept with the living files, at their
+scope; the files and their shape sit in the default, because the
+method would work with another shape. They live with the requirements
 and not in the code, so the how a person settled is found where the
 what is read, and survives the code being replaced. Each sits at the
 narrowest scope it applies to, so a feature's reader finds its how
@@ -70,16 +87,16 @@ silently contradict it, because two files saying different things
 leave nobody sure what holds. A file is created only when there is a
 decision worth keeping, so no empty files are left behind. No layout
 is prescribed, because products are cut into modules differently.
+Until 2026-10-05 where they sit was left open, for fear a fixed place
+would leave empty files; scope without a fixed layout, and a file only
+when needed, answers that fear.
 
 ## Decisions are current state, by subject — 2026-10-06
 
 Why: dated entries pile up, and three records on one subject that say
 different things leave nobody sure what holds. They are kept to
 agreements, because the code is the how and is free to change; a
-decision file that specs it drifts from it. The method holds only that
-settled choices about how are kept with the living files, at their
-scope. The files and their shape sit in the default, because the
-method would work with another shape.
+decision file that specs it drifts from it.
 
 ## Five layers — 2026-09-23
 

@@ -28,7 +28,7 @@ Every feature file follows the same shape:
 
 ### Header
 
-Status, owner, reviewers where needed, sources, conditions, and the current timebox: its date and who holds it.
+Status, owner, reviewers where needed, sources, conditions, and its timeboxes: each date, who holds it, and the reason for any move.
 
 ### Why
 
@@ -123,15 +123,13 @@ A feature without passing proof is not Live regardless of its recorded status.
 
 ## Shaping
 
-Start Shape and learn by writing enough why to start, and set the shaping timebox.
+Start Shape and learn by writing enough why to start, and set the commit date.
 
-A prototype is a tool for learning, not product truth. Whether it is thrown away, grown into the product or rebuilt is an implementation decision. Until the release gate, it promises nothing.
+Whether a prototype is thrown away, grown into the product or rebuilt is an implementation decision.
 
 ## Proof
 
-Every rule names how it is proved.
-
-At the commit gate, that may be only how we will prove it. At the release gate, the executable proof exists and passes.
+Every rule names how it is proved, as `method.md` asks at each gate.
 
 Every executable proof references its rule ID.
 
@@ -174,30 +172,32 @@ When an agreement changes, rewrite the entries it touches so they say what holds
 
 Before recording a decision, AI names the entries it contradicts or narrows, and proposes them rewritten.
 
-Decisions live with the requirements, not scattered through the code, at the narrowest scope that applies: the product, a module, or a feature. For example, `decisions.md` and `checkout.decisions.md`, or `payments/decisions.md`. The method prescribes no layout.
+A decision file sits beside the living files of its scope, as `method.md` asks: for example `decisions.md` for the product, and `checkout.decisions.md` or `payments/decisions.md` for a feature or a module. No layout is prescribed.
 
-They are read together, product, then module, then feature. A narrower decision may refine a broader one, never silently contradict it. When one does, AI surfaces the conflict and a person resolves it.
+Read them product, then module, then feature. When a narrower one contradicts a broader one, AI surfaces the conflict and a person resolves it.
 
 Create a decision file only when there is a decision worth keeping.
 
 ## The gates
 
-**Commit gate.** The feature's owner, as the person accountable for its intent, decides it with the person accountable for delivery, who sets the release timebox then if it is not set yet. The feature file has its why, capabilities and known rules, and its Proof says how each will be proved. Status becomes Building.
+**Commit gate.** The feature's owner, accountable for its intent, decides it after hearing the person accountable for delivery. The delivery person sets the release date then, if it is not set yet. The feature file has its why, capabilities and known rules, and its Proof says how each will be proved. Status becomes Building.
 
 **While building.** Rules found go into the feature file with how they will be proved, and gain their proof in the same loop. They are reviewed with the rest of the change, not one by one. A change of intent goes to the owner when it is found, not at the gate. So does anything that might be one: the builder does not decide on their own that it is not.
 
-**Release gate.** The gate in `method.md`. For behaviour the fresh agent finds with no rule, either approve a rule for it or remove it. The living files must remain understandable without reading the code. Status becomes Live.
+**Release gate.** The gate in `method.md`. For behaviour the fresh agent finds with no rule, either approve a rule for it or remove it. The living files must remain understandable without reading the code. When it passes, the owner decides to release. Status becomes Live.
 
 ## Timeboxes
 
-A timebox is a commitment to reach a boundary by a date, reliable enough that other people can plan around it. It is not a prediction of how long the work will take.
+A timebox is a commitment to reach a gate by a date, reliable enough that other people can plan around it. It is not a prediction of how long the work will take. A feature has two:
 
-- **Shaping timebox** — held by the person accountable for product intent, the feature's owner, and set when shaping starts. By its date, a conscious commit-gate decision is made: commit, reshape, keep shaping deliberately, or drop it.
-- **Release timebox** — held by the person accountable for delivery, and set at the commit gate at the latest. By its date, the agreed scope is released. A change of scope is decided with the owner of the intent.
+- **Commit date** — held by the feature's owner and set when shaping starts. By this date the owner makes a conscious commit-gate decision: commit, reshape, keep shaping deliberately, or drop it.
+- **Release date** — set at the commit gate at the latest. The person accountable for delivery is accountable for meeting it. By this date the agreed scope is released. Changing the scope or the date is the owner's decision.
 
-When what we learn threatens the release timebox, reconsider the approach and scope before moving the date. Preserve the intended outcome when changing scope.
+When what we learn threatens the release date, reconsider the approach and the scope before the date. Preserve the intended outcome when changing scope.
 
-A timebox may change, but never silently. Moving it is a conscious decision, made before the commitment is missed, and the header records the reason. People inside the team and beyond it, sometimes customers, rely on these dates. They trust them because the dates are kept, or renegotiated openly and in time.
+Moving a date is the exception. A date that moves often is no longer a commitment, whatever the reasons. When it must move, it is decided before the date is missed, and the header records the reason. People inside the team and beyond it, sometimes customers, rely on these dates.
+
+When a change of intent sends a Building feature back to Shaping, the owner withdraws its release date the same way, with the reason in the header. A new one is set at the next commit gate.
 
 What lands when is a report AI gathers from the headers; no tracker is kept.
 
@@ -211,11 +211,11 @@ A feature change records:
 
 - status
 - who asked and why now
-- its timeboxes
+- its commit and release dates
 - rules added, changed or removed
 - review findings and important reasoning
 
-The feature remains Live while the change is underway.
+A change moves through Shaping, Building and Live like a feature. The feature remains Live while the change is underway.
 
 When the change becomes Live, update the feature file, add a line to its change log, and move any reasoning worth keeping to the decision file at its scope. Then remove the change entry.
 
