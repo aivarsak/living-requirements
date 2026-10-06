@@ -9,16 +9,19 @@ are at https://github.com/aivarsak/living-requirements.
 1. Copy `manifesto.md`, `method.md` and `default.method.md` from the
    latest commit on `main` into `living-requirements/` at the project
    root. Note the commit.
-2. Create `living-requirements/project.method.md`. Ask the owner only
-   what this project or team does differently from
-   `default.method.md`, and write each difference with its why. If
-   nothing differs, the file is just:
+2. Create `living-requirements/project.method.md`. Ask the person
+   adopting it who holds Product, QA and Engineering by default; one
+   person may hold all three. Then ask only what this project or team
+   does differently from `default.method.md`, and write each
+   difference with its why. If nothing else differs, the file is just:
 
    ```md
    # Project method
 
    How this project works inside `default.method.md`: only what
    differs, each with its why.
+
+   Product: <who>. QA: <who>. Engineering: <who>.
 
    ## Proposals
    ```
@@ -75,6 +78,6 @@ https://github.com/aivarsak/living-requirements at `<commit>`.
 
 ## Then
 
-6. Tell the owner what was created. Nothing else needs setting up: the
+6. Tell the person what was created. Nothing else needs setting up: the
    product file, features and proof come as the work begins, as
    `default.method.md` describes.

@@ -6,14 +6,14 @@ Use it as-is, or replace parts of it in `project.method.md`. `method.md` wins wh
 
 ## Living files
 
-Keep living files where everyone working on the features, people and agents, can reach all of them. They find each other and their proof by ID, so they can move without breaking anything.
+Keep living files where everyone working on the features, people and agents, can reach all of them. They find each other and their tests by ID, so they can move without breaking anything.
 
 In a product with one repository, a folder of their own is usually easiest. In a product whose code spans several repositories, a repository of their own may be.
 
 There are three kinds:
 
 - **Product file** — the product's vision, the problem, the people who have it, signals, exclusions and the feature map.
-- **Feature file** — one per feature, containing its why, rules and references to proof. The contract on what.
+- **Feature file** — one per feature, containing its why, capabilities and rules, and their proof. The contract on what.
 - **Decision file** — what we agreed about how, and why, as it stands now. The contract on how.
 
 The product file is the root. Features may contain smaller features.
@@ -28,7 +28,7 @@ Every feature file follows the same shape:
 
 ### Header
 
-Status, owner, reviewers where needed, sources, conditions, and its timeboxes: each date, who holds it, and the reason for any move.
+Status; its Product, QA and Engineering, where they differ from the repository's; reviewers where needed; sources; conditions; and its timeboxes: each date, who holds it, and the reason for any move.
 
 ### Why
 
@@ -40,15 +40,15 @@ Do not repeat why inherited from a parent.
 
 Capabilities and their rules.
 
-A capability describes something a person can do.
+A capability describes something a person or another system can do.
 
 Rules describe observable behaviour or qualities worth preserving.
 
 ### Proof
 
-For each rule, where and how it is proven.
+For each rule, how it is proven, and where its tests are.
 
-Every executable proof references its rule.
+Every test references its rule.
 
 ### Signals
 
@@ -98,11 +98,11 @@ Each feature may become Live independently. A parent is Live when its children a
 
 Inside a feature, group related rules under capabilities.
 
-A capability represents one user-facing operation or ability.
+A capability represents one operation or ability the product offers to a person or another system.
 
 Give capabilities and rules stable IDs. Never reuse an ID for a different meaning.
 
-AI mints IDs as short readable slugs. A feature's slug is unique in the product. Outside its feature file, a capability or rule carries its feature's slug in front, joined by a dot: `saved-cards.remove-card.asks-to-confirm`. A project may put prefixes of its own in front, such as a module. Every proof carries the full form.
+AI mints IDs as short readable slugs. A feature's slug is unique in the product. Outside its feature file, a capability or rule carries its feature's slug in front, joined by a dot: `saved-cards.remove-card.asks-to-confirm`. A project may put prefixes of its own in front, such as a module. Every test carries the full form.
 
 Rules are acceptance criteria and should not be restated elsewhere.
 
@@ -119,7 +119,7 @@ A feature has four statuses:
 
 A change of intent may send a Building feature back to Shaping.
 
-A feature without passing proof is not Live regardless of its recorded status.
+A feature without passing tests is not Live regardless of its recorded status.
 
 ## Shaping
 
@@ -131,15 +131,17 @@ Whether a prototype is thrown away, grown into the product or rebuilt is an impl
 
 Every rule names how it is proved, as `method.md` asks at each gate.
 
-Every executable proof references its rule ID.
+Every test references its rule ID.
 
-A Live rule without proof fails the build.
+A Live rule without tests fails the build.
 
-Proof may include tests, assertions, evals or other executable checks.
+Test each rule at the boundary where its promise is observed: through the UI for what a person does, through the API for what another system does, through the public interface of a library, parser or engine, by measuring the running product for a quality. Build the code so it can be tested there. A test that sometimes fails is failing; it is fixed, not moved inside the implementation.
+
+A test that depends on implementation internals does not prove a rule merely because it exercises the rule's code. Other internal tests may exist as Engineering's own tool and need no rule ID.
 
 For nondeterministic behaviour, use a fixed evaluation set and an explicit passing threshold.
 
-How proof is implemented is a decision and may change without changing the rule.
+How tests are implemented is a decision and may change without changing the rule.
 
 ## Signals
 
@@ -162,7 +164,7 @@ Measure the baseline before relying on later comparisons.
 
 ## Decisions
 
-Feature files are the contract on what the product promises and why. Decision files are the contract on how: the questions on implementation or proof that a person chose to settle, and how each was answered. There a person guides the how. AI leads the rest, which lives in the code and is free to change.
+Feature files are the contract on what the product promises and why. Decision files are the contract on how: the questions on implementation or tests that a person chose to settle, and how each was answered. There a person guides the how. AI leads the rest, which lives in the code and is free to change.
 
 An entry belongs if changing it in the code would need someone to agree first. AI keeps the file from turning into a technical spec: when someone asks to record detail the code already carries, it pushes back, and records an overrule if they hold.
 
@@ -180,24 +182,26 @@ Create a decision file only when there is a decision worth keeping.
 
 ## The gates
 
-**Commit gate.** The feature's owner, accountable for its intent, decides it after hearing the person accountable for delivery. The delivery person sets the release date then, if it is not set yet. The feature file has its why, capabilities and known rules, and its Proof says how each will be proved. Status becomes Building.
+**Commit gate.** The feature file has its why, capabilities and known rules, and its Proof says how each will be proved. Product is satisfied that the intent is understood well enough to commit. QA, that it has reviewed the capabilities and rules and that every known rule has a proof. Engineering, that it can be delivered, and it sets the release date if it is not set yet. Status becomes Building.
 
-**While building.** Rules found go into the feature file with how they will be proved, and gain their proof in the same loop. They are reviewed with the rest of the change, not one by one. A change of intent goes to the owner when it is found, not at the gate. So does anything that might be one: the builder does not decide on their own that it is not.
+**While building.** Rules found go into the feature file with how they will be proved, and gain their proof in the same loop. They are reviewed with the rest of the change, not one by one. A change of intent goes to Product when it is found, not at the gate. So does anything that might be one: the builder does not decide on their own that it is not.
 
-**Release gate.** The gate in `method.md`. For behaviour the fresh agent finds with no rule, either approve a rule for it or remove it. The living files must remain understandable without reading the code. When it passes, the owner decides to release. Status becomes Live.
+**Release gate.** The gate in `method.md`. For behaviour the fresh agent finds with no rule, either approve a rule for it or remove it. The living files must remain understandable without reading the code. Before release, the tests of every rule added or changed must be shown to catch a break of their rule. Where it is practical, AI breaks the behaviour and confirms the tests fail. Where it is not, QA judges from the tests and the proof. A rule whose tests catch nothing is reported as a rule without a working test. QA also makes sure the feature has been tried as a person would use it. What is found goes to Product as a missing rule, or back to building as a defect. When it passes and all three are satisfied, status becomes Live.
+
+How the three say they are satisfied, and which step makes a feature Live, a merge, a deploy or a store release, is said in `project.method.md`.
 
 ## Timeboxes
 
 A timebox is a commitment to reach a gate by a date, reliable enough that other people can plan around it. It is not a prediction of how long the work will take. A feature has two:
 
-- **Commit date** — held by the feature's owner and set when shaping starts. By this date the owner makes a conscious commit-gate decision: commit, reshape, keep shaping deliberately, or drop it.
-- **Release date** — set at the commit gate at the latest. The person accountable for delivery is accountable for meeting it. By this date the agreed scope is released. Changing the scope or the date is the owner's decision.
+- **Commit date** — held by Product and set when shaping starts. By this date Product brings it to a conscious commit-gate decision. Committing needs all three to be satisfied. Reshaping, shaping on deliberately or dropping it is Product's call.
+- **Release date** — set at the commit gate at the latest. Engineering is accountable for meeting it. By this date the agreed scope is released. Changing the scope or the date is Product's decision.
 
 When what we learn threatens the release date, reconsider the approach and the scope before the date. Preserve the intended outcome when changing scope.
 
 Moving a date is the exception. A date that moves often is no longer a commitment, whatever the reasons. When it must move, it is decided before the date is missed, and the header records the reason. People inside the team and beyond it, sometimes customers, rely on these dates.
 
-When a change of intent sends a Building feature back to Shaping, the owner withdraws its release date the same way, with the reason in the header. A new one is set at the next commit gate.
+When a change of intent sends a Building feature back to Shaping, Product withdraws its release date the same way, with the reason in the header. A new one is set at the next commit gate.
 
 What lands when is a report AI gathers from the headers; no tracker is kept.
 
@@ -206,6 +210,8 @@ What lands when is a report AI gathers from the headers; no tracker is kept.
 Once a feature is Live, meaningful changes to its promises get a feature change entry.
 
 A change that touches no rule needs no entry: a fix that makes code meet an existing rule, a refactor, a change in wording.
+
+A defect whose rule exists needs no entry. Its tests, and its proof if it missed the case, are fixed with its code. A defect that shows a missing or wrong rule is a feature change.
 
 A feature change records:
 
@@ -243,7 +249,13 @@ A living file that only grows is probably becoming history rather than current t
 
 ## Ownership and approval
 
-Name a default owner for the repository. A living file may override that owner and specify additional reviewers.
+Name a default Product, QA and Engineering for the repository. A living file may name its own and add reviewers.
+
+QA makes sure that:
+
+- **each rule has its proof** before the commit gate: the cases and situations that show the rule holds, including the edge cases nobody thought of;
+- **the tests do what the proof says**, and would fail if their rule were broken. AI shows this by breaking the behaviour where practical; elsewhere QA judges it from the tests;
+- **the feature has been tried** before release as a person would use it, looking for what no rule describes.
 
 What a person says about how, about the code or the wording of a rule, is input the first time, not instruction. AI does its own thinking and comes back with a better plan or a reason theirs is best. If the person holds to theirs, AI complies, and the decision is written with its why, marked as an overrule.
 
