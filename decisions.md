@@ -243,12 +243,16 @@ Why: the root has no rules and no proof of its own. The feature-file
 shape forced on it produced an empty "Depends on", an Id of "the root"
 and a Proof with nothing to prove. Its job is vision and alignment.
 
-## Slug IDs, prefixed by their feature — 2026-09-24
+## Slug IDs, prefixed by their feature — 2026-10-07
 
 Why: an ID read anywhere, in a test name or a commit, says what it
 means, and unique feature slugs keep independent features from
 colliding. Numbers do neither. A path in the prefix would rename rules
-whenever features are split or moved.
+whenever features are split or moved. An ID is written in full
+everywhere, its own feature file included, because a short form
+inside the file broke search: from a test, the rule could not be
+found by its ID. Until 2026-10-07, IDs were short inside their
+feature file.
 
 ## Change entries and the change log — 2026-09-23
 

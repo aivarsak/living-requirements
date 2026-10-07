@@ -102,7 +102,7 @@ A capability represents one operation or ability the product offers to a person 
 
 Give capabilities and rules stable IDs. Never reuse an ID for a different meaning.
 
-AI mints IDs as short readable slugs. A feature's slug is unique in the product. Outside its feature file, a capability or rule carries its feature's slug in front, joined by a dot: `saved-cards.remove-card.asks-to-confirm`. A project may put prefixes of its own in front, such as a module. Every test carries the full form.
+AI mints IDs as short readable slugs. A feature's slug is unique in the product. A capability or rule is always written in full, its feature's slug and its capability in front, joined by dots, including in its own feature file: `saved-cards.remove-card` and `saved-cards.remove-card.asks-to-confirm`. A project may put prefixes of its own in front, such as a module. One ID has one spelling, so a plain search finds every place it is used.
 
 Rules are acceptance criteria and should not be restated elsewhere.
 
