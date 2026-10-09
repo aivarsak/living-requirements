@@ -232,9 +232,9 @@ never grows into a history.
 ## Where living files go — 2026-09-23
 
 Why: moving them is harmless while everyone can reach all of them and
-they refer to each other and to proof by ID. An accidental removal
-shows up as drift, because the proof left behind carries rule IDs
-that have no rule. So a folder or repository of their own is a
+they refer to each other, and tests to test cases, by ID. An
+accidental removal shows up as drift, because the tests left behind
+carry test case IDs that have no test case. So a folder or repository of their own is a
 suggestion, not a rule.
 
 ## The product file's own shape — 2026-09-19
@@ -243,17 +243,30 @@ Why: the root has no rules and no proof of its own. The feature-file
 shape forced on it produced an empty "Depends on", an Id of "the root"
 and a Proof with nothing to prove. Its job is vision and alignment.
 
-## Slug IDs, prefixed by their feature — 2026-10-07
+## Slug IDs for features and test cases — 2026-10-09
 
-Why: an ID read anywhere, in a test name or a commit, says what it
-means, and unique feature slugs keep independent features from
-colliding. Numbers do neither. A path in the prefix would rename rules
-whenever features are split or moved. An ID is written in full
-everywhere, its own feature file included, because a short form
-inside the file broke search: from a test, the rule could not be
-found by its ID. Until 2026-10-07, IDs were short inside their
-feature file.
-
+Why: tests live with the code, often in another repository, and what
+ties a test to the living files is the ID of the test case it
+implements. With test case IDs a build finds every test case no test
+implements, not only a rule with no test at all, and tests whose test
+case is gone, without anyone reading. AI mints the IDs, since nobody
+else will. "Proof" names a rule's test cases taken together, not a
+separate thing to track: a rule is proven when all its test cases
+have passing tests. Brownfield works the same way: test cases are
+extracted from existing tests and tagged. Rules and capabilities have
+no ID, because nothing links to them but through their test cases;
+until 2026-10-09 rules and capabilities had IDs and test cases did
+not. A proof stays apart from the tests that implement it, in prose,
+to keep the split of 2026-10-06, and sits under its rule, because with
+no rule ID a separate Proof section could only point to its rule by
+repeating it. "Test case" over "case", because it is the word people
+use. Unique feature slugs keep independent features from colliding;
+numbers would say nothing. A path in the prefix would rename test
+cases whenever features are split or moved. An ID is written in full
+everywhere, so a plain search from a test finds its test case. Across
+repositories a plain search does not reach, a test map rebuilt by AI
+from the tests gives the same reach; it is an index, not product
+truth, so it never wins over the tests.
 ## Change entries and the change log — 2026-09-23
 
 Why: once a change is Live its entry is only history, which living

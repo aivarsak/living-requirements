@@ -38,17 +38,13 @@ Do not repeat why inherited from a parent.
 
 ### What
 
-Capabilities and their rules.
+Capabilities and their rules, each rule with its proof.
 
 A capability describes something a person or another system can do.
 
 Rules describe observable behaviour or qualities worth preserving.
 
-### Proof
-
-For each rule, how it is proven, and where its tests are.
-
-Every test references its rule.
+A rule's proof is listed under it as one or more test cases, each with its ID: how the rule is shown to hold, in prose.
 
 ### Signals
 
@@ -100,9 +96,9 @@ Inside a feature, group related rules under capabilities.
 
 A capability represents one operation or ability the product offers to a person or another system.
 
-Give capabilities and rules stable IDs. Never reuse an ID for a different meaning.
+Give features and test cases stable IDs. Never reuse an ID for a different meaning.
 
-AI mints IDs as short readable slugs. A feature's slug is unique in the product. A capability or rule is always written in full, its feature's slug and its capability in front, joined by dots, including in its own feature file: `saved-cards.remove-card` and `saved-cards.remove-card.asks-to-confirm`. A project may put prefixes of its own in front, such as a module. One ID has one spelling, so a plain search finds every place it is used.
+AI mints IDs as short readable slugs, whenever a feature or a test case is written without one: while shaping, while building, or while extracting test cases from existing tests. Nobody needs to give one. A feature's slug is unique in the product; a test case's slug is unique in its feature. A test case ID is always written in full, its feature's slug in front, joined by a dot, including in its own feature file: `saved-cards.cancel-keeps-card`. A project may put prefixes of its own in front, such as a module. One ID has one spelling, so a plain search finds every place it is used.
 
 Rules are acceptance criteria and should not be restated elsewhere.
 
@@ -129,15 +125,17 @@ Whether a prototype is thrown away, grown into the product or rebuilt is an impl
 
 ## Proof
 
-Every rule names how it is proved, as `method.md` asks at each gate.
+Every rule's proof is one or more test cases, as `method.md` asks at each gate.
 
-Every test references its rule ID.
+Every test carries the ID of the test case it implements. One test case may have several tests.
 
-A Live rule without tests fails the build.
+A rule is proven when every one of its test cases has its tests, and they pass. A test case of a Live rule without a test fails the build.
+
+Where the tests are spread over several repositories, AI may keep a test map: from each test case ID to where its tests are, and to other references that help an agent find its context. AI rebuilds it from the IDs the tests carry and nobody edits it. Where the map and the tests disagree, the tests are right.
 
 Test each rule at the boundary where its promise is observed: through the UI for what a person does, through the API for what another system does, through the public interface of a library, parser or engine, by measuring the running product for a quality. Build the code so it can be tested there. A test that sometimes fails is failing; it is fixed, not moved inside the implementation.
 
-A test that depends on implementation internals does not prove a rule merely because it exercises the rule's code. Other internal tests may exist as Engineering's own tool and need no rule ID.
+A test that depends on implementation internals does not prove a rule merely because it exercises the rule's code. Other internal tests may exist as Engineering's own tool and need no test case ID.
 
 For nondeterministic behaviour, use a fixed evaluation set and an explicit passing threshold.
 
@@ -182,9 +180,9 @@ Create a decision file only when there is a decision worth keeping.
 
 ## The gates
 
-**Commit gate.** The feature file has its why, capabilities and known rules, and its Proof says how each will be proved. Product is satisfied that the intent is understood well enough to commit. QA, that it has reviewed the capabilities and rules and that every known rule has a proof. Engineering, that it can be delivered, and it sets the release date if it is not set yet. Status becomes Building.
+**Commit gate.** The feature file has its why, capabilities and known rules, and each known rule has its test cases. Product is satisfied that the intent is understood well enough to commit. QA, that it has reviewed the capabilities and rules and that every known rule has a proof. Engineering, that it can be delivered, and it sets the release date if it is not set yet. Status becomes Building.
 
-**While building.** Rules found go into the feature file with how they will be proved, and gain their proof in the same loop. They are reviewed with the rest of the change, not one by one. A change of intent goes to Product when it is found, not at the gate. So does anything that might be one: the builder does not decide on their own that it is not.
+**While building.** Rules found go into the feature file with their test cases, and gain their tests in the same loop. They are reviewed with the rest of the change, not one by one. A change of intent goes to Product when it is found, not at the gate. So does anything that might be one: the builder does not decide on their own that it is not.
 
 **Release gate.** The gate in `method.md`. For behaviour the fresh agent finds with no rule, either approve a rule for it or remove it. The living files must remain understandable without reading the code. Before release, the tests of every rule added or changed must be shown to catch a break of their rule. Where it is practical, AI breaks the behaviour and confirms the tests fail. Where it is not, QA judges from the tests and the proof. A rule whose tests catch nothing is reported as a rule without a working test. QA also makes sure the feature has been tried as a person would use it. What is found goes to Product as a missing rule, or back to building as a defect. When it passes and all three are satisfied, status becomes Live.
 
@@ -253,7 +251,7 @@ Name a default Product, QA and Engineering for the repository. A living file may
 
 QA makes sure that:
 
-- **each rule has its proof** before the commit gate: the cases and situations that show the rule holds, including the edge cases nobody thought of;
+- **each rule has its proof** before the commit gate: the test cases that show the rule holds, including the edge cases nobody thought of;
 - **the tests do what the proof says**, and would fail if their rule were broken. AI shows this by breaking the behaviour where practical; elsewhere QA judges it from the tests;
 - **the feature has been tried** before release as a person would use it, looking for what no rule describes.
 
