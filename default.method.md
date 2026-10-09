@@ -13,7 +13,7 @@ In a product with one repository, a folder of their own is usually easiest. In a
 There are three kinds:
 
 - **Product file** — the product's vision, the problem, the people who have it, signals, exclusions and the feature map.
-- **Feature file** — one per feature, containing its why, capabilities and rules, and their proof. The contract on what.
+- **Feature file** — one per feature, containing its why, capabilities and rules, and their test cases. The contract on what.
 - **Decision file** — what we agreed about how, and why, as it stands now. The contract on how.
 
 The product file is the root. Features may contain smaller features.
@@ -38,13 +38,25 @@ Do not repeat why inherited from a parent.
 
 ### What
 
-Capabilities and their rules, each rule with its proof.
+Capabilities and their rules, each rule with its test cases.
 
 A capability describes something a person or another system can do.
 
 Rules describe observable behaviour or qualities worth preserving.
 
-A rule's proof is listed under it as one or more test cases, each with its ID: how the rule is shown to hold, in prose.
+A rule's test cases are listed under it, labelled Test cases, each with its ID: how the rule is shown to hold, in prose.
+
+```md
+### Remove a card
+
+- Removing a card asks the person to confirm first.
+
+  Test cases:
+  - `saved-cards.confirm-shown`: in the UI, removing a card shows a
+    confirmation before anything is removed.
+  - `saved-cards.cancel-keeps-card`: cancelling the confirmation keeps
+    the card.
+```
 
 ### Signals
 
@@ -125,7 +137,7 @@ Whether a prototype is thrown away, grown into the product or rebuilt is an impl
 
 ## Proof
 
-Every rule's proof is one or more test cases, as `method.md` asks at each gate.
+Every rule has one or more test cases, as `method.md` asks at each gate.
 
 Every test carries the ID of the test case it implements. One test case may have several tests.
 
@@ -209,7 +221,7 @@ Once a feature is Live, meaningful changes to its promises get a feature change 
 
 A change that touches no rule needs no entry: a fix that makes code meet an existing rule, a refactor, a change in wording.
 
-A defect whose rule exists needs no entry. Its tests, and its proof if it missed the case, are fixed with its code. A defect that shows a missing or wrong rule is a feature change.
+A defect whose rule exists needs no entry. Its tests, and its test cases if they missed it, are fixed with its code. A defect that shows a missing or wrong rule is a feature change.
 
 A feature change records:
 
@@ -251,8 +263,8 @@ Name a default Product, QA and Engineering for the repository. A living file may
 
 QA makes sure that:
 
-- **each rule has its proof** before the commit gate: the test cases that show the rule holds, including the edge cases nobody thought of;
-- **the tests do what the proof says**, and would fail if their rule were broken. AI shows this by breaking the behaviour where practical; elsewhere QA judges it from the tests;
+- **each rule has its test cases** before the commit gate, showing it holds, including the edge cases nobody thought of;
+- **the tests do what the test cases say**, and would fail if their rule were broken. AI shows this by breaking the behaviour where practical; elsewhere QA judges it from the tests;
 - **the feature has been tried** before release as a person would use it, looking for what no rule describes.
 
 What a person says about how, about the code or the wording of a rule, is input the first time, not instruction. AI does its own thinking and comes back with a better plan or a reason theirs is best. If the person holds to theirs, AI complies, and the decision is written with its why, marked as an overrule.
