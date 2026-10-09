@@ -44,18 +44,24 @@ A capability describes something a person or another system can do.
 
 Rules describe observable behaviour or qualities worth preserving.
 
-A rule's test cases are listed under it, labelled Test cases, each with its ID: how the rule is shown to hold, in prose.
+Each capability is a heading prefixed Capability. Each rule is prefixed Rule, and its test cases are listed under it, prefixed Test cases, each with its ID: how the rule is shown to hold, in prose.
 
 ```md
-### Remove a card
+### Capability: Remove a card
 
-- Removing a card asks the person to confirm first.
+- **Rule:** Removing a card asks the person to confirm first.
 
-  Test cases:
+  **Test cases:**
   - `saved-cards.confirm-shown`: in the UI, removing a card shows a
     confirmation before anything is removed.
   - `saved-cards.cancel-keeps-card`: cancelling the confirmation keeps
     the card.
+
+- **Rule:** A removed card is no longer offered at checkout.
+
+  **Test cases:**
+  - `saved-cards.removed-not-offered`: after removing a card, checkout
+    lists only the remaining cards.
 ```
 
 ### Signals

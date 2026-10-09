@@ -243,7 +243,7 @@ Why: the root has no rules and no proof of its own. The feature-file
 shape forced on it produced an empty "Depends on", an Id of "the root"
 and a Proof with nothing to prove. Its job is vision and alignment.
 
-## Proof and test cases — 2026-10-09
+## Proof, test cases and the prefixes in a feature file — 2026-10-09
 
 Why: what sits under a rule is plainly test cases, each with an ID, so
 the feature file and the method call them that, the word people
@@ -254,6 +254,14 @@ the cases both miss, or the manifesto's "Proof is not success".
 Defined once: every rule has a proof, and its test cases are how we
 prove it. A sentence that points at something written says test
 cases; one about why or who says proof.
+In the feature file each capability, rule and list of test cases is
+prefixed with what it is, so a reader who does not know the method
+can tell them apart. Rule is the word Example Mapping and Gherkin use
+beside their examples; acceptance criteria name the checks one change
+must pass, not a promise the product keeps. Capability over user
+story, which is a unit of work, and over use case, which brings flows
+and paths the file does not keep; it describes an ability the product
+offers, to a person or another system.
 
 ## Slug IDs for features and test cases — 2026-10-09
 
