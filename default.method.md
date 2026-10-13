@@ -44,7 +44,7 @@ A capability describes something a person or another system can do.
 
 Rules describe observable behaviour or qualities worth preserving.
 
-Each capability is a heading prefixed Capability. Each rule is prefixed Rule, and its test cases are listed under it, prefixed Test cases, each with its ID: how the rule is shown to hold, in prose.
+Each capability is a heading prefixed Capability. Each rule is prefixed Rule, and its test cases are listed under it, prefixed Test cases, each with its ID and where it is observed: how the rule is shown to hold, in prose.
 
 ```md
 ### Capability: Remove a card
@@ -52,16 +52,16 @@ Each capability is a heading prefixed Capability. Each rule is prefixed Rule, an
 - **Rule:** Removing a card asks the person to confirm first.
 
   **Test cases:**
-  - `saved-cards.confirm-shown`: in the UI, removing a card shows a
+  - `saved-cards.confirm-shown` @web: removing a card shows a
     confirmation before anything is removed.
-  - `saved-cards.cancel-keeps-card`: cancelling the confirmation keeps
-    the card.
+  - `saved-cards.cancel-keeps-card` @web: cancelling the confirmation
+    keeps the card.
 
 - **Rule:** A removed card is no longer offered at checkout.
 
   **Test cases:**
-  - `saved-cards.removed-not-offered`: after removing a card, checkout
-    lists only the remaining cards.
+  - `saved-cards.removed-not-offered` @web @api: after removing a
+    card, checkout lists only the remaining cards.
 ```
 
 ### Signals
@@ -118,6 +118,8 @@ Give features and test cases stable IDs. Never reuse an ID for a different meani
 
 AI mints IDs as short readable slugs, whenever a feature or a test case is written without one: while shaping, while building, or while extracting test cases from existing tests. Nobody needs to give one. A feature's slug is unique in the product; a test case's slug is unique in its feature. A test case ID is always written in full, its feature's slug in front, joined by a dot, including in its own feature file: `saved-cards.cancel-keeps-card`. A project may put prefixes of its own in front, such as a module. One ID has one spelling, so a plain search finds every place it is used.
 
+Each test case names the surfaces it is observed through, as tags after its ID. A test case observed on several surfaces lists each, and has tests on each. The tags are the surfaces the system offers, named in `project.method.md`, such as `@web`, `@api` and `@mcp`. A tag never changes the test case's ID, and AI counts and filters test cases by them.
+
 Rules are acceptance criteria and should not be restated elsewhere.
 
 Future possibilities stay as open questions until they are shaped. Do not write detailed rules for things nobody has tried yet.
@@ -151,7 +153,7 @@ A rule is proven when every one of its test cases has its tests, and they pass. 
 
 Where the tests are spread over several repositories, AI may keep a test map: from each test case ID to where its tests are, and to other references that help an agent find its context. AI rebuilds it from the IDs the tests carry and nobody edits it. Where the map and the tests disagree, the tests are right.
 
-Test each rule at the boundary where its promise is observed: through the UI for what a person does, through the API for what another system does, through the public interface of a library, parser or engine, by measuring the running product for a quality. Build the code so it can be tested there. A test that sometimes fails is failing; it is fixed, not moved inside the implementation.
+Test each rule at the boundary where its promise is observed, and tag its test cases with it: through the UI for what a person does, through the API for what another system does, through the public interface of a library, parser or engine, by measuring the running product for a quality. Build the code so it can be tested there. A test that sometimes fails is failing; it is fixed, not moved inside the implementation.
 
 A test that depends on implementation internals does not prove a rule merely because it exercises the rule's code. Other internal tests may exist as Engineering's own tool and need no test case ID.
 

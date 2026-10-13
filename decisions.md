@@ -6,6 +6,23 @@ method files say the rest. When a decision changes, its entry is
 rewritten, and git keeps what it said before. Overrules and declined
 proposals are marked.
 
+## Test cases name where they are observed — 2026-10-13
+
+Why: a team offering the same capability through web, API and MCP
+needs to know how much of what it promises is proven on each, and
+prose like "in the UI" cannot be counted. The method already asked
+each test case to be observed at a boundary; the tag makes that
+searchable. Surfaces, not levels: a "capability level" test case is
+still observed somewhere, and one that holds everywhere lists every
+surface, so no surface counts as covered by another's test. A UI test
+case is UI-specific and carries only its UI tag. The names are the
+project's, because surfaces are the product's, so the method fixes no
+list. Tags sit beside the ID, not in it, so a test case does not
+change its ID when it gains a surface. `@` is shared with `@open` and
+`@todo`, so no surface is named open or todo. No build check yet; the
+test map can add one. Open: a web-only test case cannot yet be told
+from a capability test case proven so far only on the web.
+
 ## The hook names the product — 2026-10-06
 
 Why: "what the product should do" is the promise itself, which is
