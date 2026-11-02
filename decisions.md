@@ -6,6 +6,17 @@ method files say the rest. When a decision changes, its entry is
 rewritten, and git keeps what it said before. Overrules and declined
 proposals are marked.
 
+## Capabilities are named by what someone does — 2026-11-02
+
+Why: headings named after things and qualities ("A company",
+"Superadmins") made readers rebuild from the rules what a feature lets
+them do. Verb first, from the actor's side, says it in the heading.
+Definitions and feature-wide promises pulled headings toward nouns, so
+each now has a place under a capability. Ordered where there is an
+order, not told as one flow from first step to last: the capability,
+not use case, decision keeps flows and paths out of the file, and some
+capabilities are alternatives rather than steps.
+
 ## Test cases name where they are observed — 2026-10-13
 
 Why: a team offering the same capability through web, API and MCP
