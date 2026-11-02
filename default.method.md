@@ -112,7 +112,9 @@ Each feature may become Live independently. A parent is Live when its children a
 
 Inside a feature, group related rules under capabilities.
 
-A capability represents one operation or ability the product offers to a person or another system.
+A capability is one step of the problem its feature solves. It is named by what a person or another system does to take that step, verb first and from their side: "Remove a card", not "Saved cards". It is never named after a thing or a quality. Read in order, a feature's capabilities tell its problem from the first step to the last.
+
+What something is goes as a rule under the step where it is first seen. A promise the whole feature keeps goes under the step where someone relies on it.
 
 Give features and test cases stable IDs. Never reuse an ID for a different meaning.
 
