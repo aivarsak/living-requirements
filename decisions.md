@@ -6,17 +6,18 @@ method files say the rest. When a decision changes, its entry is
 rewritten, and git keeps what it said before. Overrules and declined
 proposals are marked.
 
-## Living files identify no person — 2026-11-03
+## Living files identify no one outside the team — 2026-11-03
 
 Why: living files are read by every agent on the product and shared
 with the whole team, and many are public. A name, an email or a phone
-number written there stays in the history after it is removed.
-Examples need someone for things to happen to, so they get made-up
-people, and a reserved domain so a made-up email reaches no one. Those
-who hold Product, QA and Engineering are named, because the method
-needs a named person for each, and they choose to be. Companies are
-not people, so a project may name its customers, unless naming one
-identifies a person.
+number written there stays in the history after it is removed, and the
+people outside the team never agreed to it. Examples need someone for
+things to happen to, so they get made-up people, and a reserved domain
+so a made-up email reaches no one. The team's own people may be named
+anywhere: their names are already on every commit, and the method needs
+a name for Product, QA and Engineering, owners and reviewers. Listing
+only those roles missed some of them. Companies are not people, so they
+may be named, unless naming one identifies a person.
 
 ## Capabilities are named by what someone does — 2026-11-02
 
