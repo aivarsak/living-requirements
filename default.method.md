@@ -20,6 +20,8 @@ The product file is the root. Features may contain smaller features.
 
 Living files describe current truth and are maintained for as long as that truth remains current.
 
+Living files hold no information that identifies a person. The exception is the names of those who hold Product, QA and Engineering, or who decided something, as they choose. Examples and test cases use made-up people, with emails on a domain reserved for examples, such as `.example`. A real person in sources or evidence is named by their role: "a rep", "a customer's CEO".
+
 Working material — customer conversations, evidence, requests, proposals, designs and other change documents — describes transitions and is not maintained as product truth.
 
 ## Feature files
